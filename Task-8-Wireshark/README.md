@@ -5,7 +5,6 @@
 The objective of this task was to capture and analyze network traffic using Wireshark.
 
 ## Tool Used
-
 * Wireshark
 
 ## Procedure
@@ -26,11 +25,44 @@ The packet capture contained network communication generated during normal web b
 * DNS
 * HTTPS
 
-### Findings
+## Traffic Analysis Findings
 
-* DNS packets were used to resolve domain names.
-* TCP packets established and maintained network connections.
-* HTTPS traffic was encrypted, protecting transmitted data.
+The captured traffic primarily consisted of DNS queries and responses generated during normal web browsing activity.
+
+### Protocols Identified
+
+* DNS (Domain Name System)
+* UDP (User Datagram Protocol)
+* IPv6
+* Ethernet II
+
+### Observations
+
+Several DNS queries were observed for domains including:
+
+* [www.youtube.com](http://www.youtube.com)
+* play.google.com
+* charusat.edu.in
+* ogads-pa.clients6.google.com
+
+The packets demonstrated the DNS resolution process in which domain names are translated into IP addresses before network communication occurs.
+
+### Packet Example
+
+One captured packet showed:
+
+* Source Port: 61891
+* Destination Port: 53
+* Protocol: DNS
+
+This indicates that the client device initiated a DNS request to a DNS server to resolve a domain name.
+
+### Security Considerations
+
+* DNS traffic can reveal websites and services accessed by users.
+* Monitoring DNS activity helps detect malicious domains and suspicious communications.
+* Encrypted web traffic (HTTPS) protects data transmission after DNS resolution occurs.
+
 
 ## Security Observations
 
